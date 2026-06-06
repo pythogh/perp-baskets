@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pair Backtest · xyz</title>
+<title>Perp Basket · xyz</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -70,7 +70,7 @@ input[type=range]{width:80px;accent-color:var(--acc);cursor:pointer}
 .tname{font-size:11px;font-weight:500;flex:1}
 .trate{font-size:9px;font-family:var(--mono);width:44px;text-align:right;flex-shrink:0}
 .lsbtns{display:flex;gap:2px}
-.lsb{font-size:9px;font-family:var(--mono);padding:1px 6px;border-radius:3px;border:1px solid var(--b2);background:transparent;color:var(--tx2);cursor:pointer;font-weight:500;transition:all .1s}
+.lsb{font-size:11px;font-family:var(--mono);padding:1px 6px;border-radius:3px;border:1px solid var(--b2);background:transparent;cursor:pointer;font-weight:500;transition:all .1s}.lsb:first-child{color:var(--g)}.lsb:last-child{color:var(--r)}
 .lsb.la{background:var(--gbg);color:var(--g);border-color:var(--gb)}
 .lsb.sa{background:var(--rbg);color:var(--r);border-color:var(--rb)}
 .lsb:not(.la):not(.sa):hover{background:var(--s3)}
@@ -93,7 +93,7 @@ input[type=range]{width:80px;accent-color:var(--acc);cursor:pointer}
 .tpill-l{background:var(--gbg);color:var(--g)}
 .tpill-s{background:var(--rbg);color:var(--r)}
 .tpill img{width:14px;height:14px;border-radius:50%;flex-shrink:0;border:1px solid rgba(255,255,255,.85);box-shadow:0 0 0 1px var(--b);background:#fff;object-fit:contain;padding:1px}
-.rkpis{display:flex;gap:14px;align-items:center;flex-shrink:0}
+.rkpis{display:flex;gap:24px;align-items:center;flex-shrink:0}
 .kpi{text-align:right}
 .kpi-v{font-size:15px;font-weight:500;font-family:var(--mono);letter-spacing:-.3px}
 .kpi-l{font-size:8px;color:var(--tx3);text-transform:uppercase;letter-spacing:.06em;margin-top:1px}
@@ -108,7 +108,7 @@ input[type=range]{width:80px;accent-color:var(--acc);cursor:pointer}
 .sval{font-size:18px;font-weight:500;font-family:var(--mono);letter-spacing:-.3px}
 .ssub{font-size:9px;color:var(--tx3);margin-top:1px}
 /* Chart */
-.cbox{background:var(--bg);border:1px solid var(--b);border-radius:var(--r8);padding:12px;margin-bottom:12px}
+.cbox{background:transparent;border:none;padding:0 0 12px 0;margin-bottom:12px}
 .ctitle{font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--tx3);font-family:var(--mono);margin-bottom:8px}
 /* Table */
 .tbl-wrap{border:1px solid var(--b);border-radius:var(--r8);overflow:hidden;margin-bottom:10px}
@@ -147,7 +147,7 @@ input[type=range]{width:80px;accent-color:var(--acc);cursor:pointer}
 <div id="shell" style="display:none">
   <div id="topbar">
     <div class="t-left">
-      <h1>Pair Backtest</h1>
+      <h1 style="font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:18px;letter-spacing:-.2px">Perp Basket</h1>
       <span class="tsub">xyz perps · price + funding</span>
     </div>
     <div class="t-controls">
@@ -561,8 +561,8 @@ function buildCard(p, i, ns) {
   const id = `${ns}-${i}`;
   const dollarPnl = r.totalPnl/100*CAPITAL;
   const fmt$ = n => (n>=0?'+':'-')+'$'+Math.round(Math.abs(n)).toLocaleString('en-US');
-  return `<div class="rcard" id="rc-${id}">
-    <div class="rcard-head" onclick="toggleCard(${i},'${ns}')">
+  return `<div class="rcard" id="rc-${id}" onclick="toggleCard(${i},'${ns}')">
+    <div class="rcard-head">
       ${ns==='auto'?`<span class="rnum">#${i+1}</span>`:''}
       <div class="rinfo">
         <div class="rname">${p.name}${p.corr!=null?` <span style="font-size:9px;color:var(--tx3)">corr ${p.corr>0?'+':''}${p.corr.toFixed(2)}</span>`:''}</div>
@@ -574,6 +574,7 @@ function buildCard(p, i, ns) {
           <div class="kpi-l" style="color:${pc};font-size:10px;font-weight:500">${fmt$(dollarPnl)}</div>
         </div>
         <div class="kpi"><div class="kpi-v" style="color:${sc}">${r.sharpe>=0?'+':''}${r.sharpe.toFixed(2)}</div><div class="kpi-l">Sharpe</div></div>
+        <div class="kpi"><div class="kpi-v">${r.winRate.toFixed(0)}%</div><div class="kpi-l">Win rate</div></div>
         <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
       </div>
     </div>
@@ -596,15 +597,9 @@ function buildDetail(p, id) {
   const dollarDD      = r.maxDD/100*CAPITAL;
 
   return `
-    <div class="sgrid">
-      <div class="sc"><div class="slbl">Total P&L (${period}d)</div><div class="sval" style="color:${pc}">${r.totalPnl>=0?'+':''}${r.totalPnl.toFixed(2)}%</div><div class="ssub" style="color:${pc};font-weight:500">${fmtSigned$(dollarTotal)}</div></div>
-      <div class="sc"><div class="slbl">Sharpe</div><div class="sval" style="color:${sc}">${r.sharpe.toFixed(2)}</div><div class="ssub">${r.sharpe>=2?'Excellent':r.sharpe>=1?'Good':r.sharpe>=0?'Weak':'Negative'}</div></div>
-      <div class="sc"><div class="slbl">Win rate</div><div class="sval">${r.winRate.toFixed(0)}%</div><div class="ssub">${r.nDays}d tracked</div></div>
-      <div class="sc"><div class="slbl">Max drawdown</div><div class="sval neg">-${r.maxDD.toFixed(2)}%</div><div class="ssub" style="color:var(--r);font-weight:500">-${fmt$(dollarDD)}</div></div>
-    </div>
     <div class="cbox">
       <div class="ctitle">Cumulative P&L — <span style="color:#15803d">Total</span> · <span style="color:#2563eb">Price</span> · <span style="color:#d97706">Funding</span></div>
-      <div style="height:200px"><canvas id="chart-${id}"></canvas></div>
+      <div style="height:240px"><canvas id="chart-${id}"></canvas></div>
     </div>
     <div class="tbl-wrap">
       <table class="ltbl">
@@ -646,19 +641,59 @@ function drawChart(id, series) {
   const fund   = series.map(d=>d.cumFx);
   const labels = series.map(d=>new Date(d.time).toLocaleDateString('en-GB',{day:'2-digit',month:'short'}));
   const isPos  = total[total.length-1]>=0;
+  const mainColor = isPos ? '#15803d' : '#b91c1c';
+  const CAPITAL = capital;
+
+  // Plugin to draw $ labels above each point
+  const dollarLabelPlugin = {
+    id: 'dollarLabels',
+    afterDatasetsDraw(chart) {
+      const ctx = chart.ctx;
+      const ds = chart.data.datasets[0];
+      const meta = chart.getDatasetMeta(0);
+      ctx.save();
+      ctx.font = '9px DM Mono, monospace';
+      ctx.textAlign = 'center';
+      meta.data.forEach((pt, i) => {
+        const val = ds.data[i];
+        if (val == null) return;
+        const prev = i > 0 ? ds.data[i-1] : 0;
+        const daily = val - prev;
+        const dollars = daily / 100 * CAPITAL;
+        const sign = dollars >= 0 ? '+' : '-';
+        const label = sign + '$' + Math.round(Math.abs(dollars));
+        ctx.fillStyle = dollars >= 0 ? '#15803d' : '#b91c1c';
+        ctx.fillText(label, pt.x, pt.y - 9);
+      });
+      ctx.restore();
+    }
+  };
+
   openCards[id] = new Chart(canvas, {
     type:'line',
     data:{ labels, datasets:[
-      { label:'Total',   data:total, borderColor: isPos?'#15803d':'#b91c1c', backgroundColor: isPos?'rgba(21,128,61,.07)':'rgba(185,28,28,.05)', fill:true, borderWidth:2, pointRadius:0, tension:0.35 },
-      { label:'Price',   data:price, borderColor:'#2563eb', backgroundColor:'transparent', fill:false, borderWidth:1.5, borderDash:[4,3], pointRadius:0, tension:0.35 },
-      { label:'Funding', data:fund,  borderColor:'#d97706', backgroundColor:'transparent', fill:false, borderWidth:1.5, borderDash:[4,3], pointRadius:0, tension:0.35 },
+      {
+        label:'Total', data:total,
+        borderColor: mainColor,
+        backgroundColor: isPos?'rgba(21,128,61,.07)':'rgba(185,28,28,.05)',
+        fill:true, borderWidth:2, tension:0.2,
+        pointRadius:3.5, pointBackgroundColor: mainColor,
+        pointBorderColor: mainColor, pointBorderWidth:0,
+        pointHoverRadius:5, pointHoverBackgroundColor: mainColor,
+      },
+
     ]},
+    plugins:[ dollarLabelPlugin ],
     options:{
       responsive:true, maintainAspectRatio:false,
-      plugins:{ legend:{ display:false }, tooltip:{ callbacks:{ label:c=>`${c.dataset.label}: ${c.parsed.y>=0?'+':''}${c.parsed.y.toFixed(3)}%` }}},
+      layout:{ padding:{ top:24, bottom:8, left:4, right:4 } },
+      plugins:{
+        legend:{ display:false },
+        tooltip:{ enabled:false }
+      },
       scales:{
         x:{ grid:{display:false}, ticks:{font:{family:'DM Mono,monospace',size:9},color:'#9c9c94',maxTicksLimit:8}},
-        y:{ grid:{color:'rgba(0,0,0,.05)'}, ticks:{font:{family:'DM Mono,monospace',size:9},color:'#9c9c94',callback:v=>(v>=0?'+':'')+v.toFixed(1)+'%'}}
+        y:{ grid:{color:'rgba(0,0,0,.04)'}, ticks:{font:{family:'DM Mono,monospace',size:9},color:'#9c9c94',callback:v=>(v>=0?'+':'')+v.toFixed(1)+'%'}}
       }
     }
   });
