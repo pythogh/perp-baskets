@@ -22,7 +22,6 @@
 html,body{height:100%;overflow:hidden}
 body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px;line-height:1.5;-webkit-font-smoothing:antialiased}
 #shell{display:flex;flex-direction:column;height:100dvh}
-/* Topbar */
 #topbar{display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:52px;border-bottom:1px solid var(--b);background:var(--s);flex-shrink:0;gap:16px}
 .t-left{display:flex;align-items:baseline}
 #topbar h1{font-size:15px;font-weight:500;letter-spacing:-.2px}
@@ -39,28 +38,23 @@ input[type=range]{width:80px;accent-color:var(--acc);cursor:pointer}
 .live{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--tx3);font-family:var(--mono)}
 .dot{width:6px;height:6px;border-radius:50%;background:var(--g);animation:blink 2.5s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-/* Tabs */
 #tabs{display:flex;border-bottom:1px solid var(--b);background:var(--s);flex-shrink:0;padding:0 20px}
 .tabbt{padding:10px 18px;font-size:12px;font-family:var(--sans);cursor:pointer;border:none;background:none;color:var(--tx3);border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .1s}
 .tabbt.active{color:var(--tx);border-bottom-color:var(--acc);font-weight:500}
 .tabbt:hover{color:var(--tx2)}
-/* Content */
 #content{flex:1;overflow:hidden;display:flex;min-height:0}
 .tab-pane{display:none;flex:1;overflow:hidden}
 .tab-pane.active{display:flex}
 /* Auto tab */
-#tab-auto{flex-direction:column;overflow-y:auto}
+#tab-auto{flex-direction:column;overflow-y:auto;padding:20px}
 #tab-auto::-webkit-scrollbar{width:4px}
 #tab-auto::-webkit-scrollbar-thumb{background:var(--b2);border-radius:2px}
-.auto-inner{width:100%;padding:20px}
 /* Custom tab */
 #tab-custom{flex-direction:row}
 #custom-left{width:300px;border-right:1px solid var(--b);display:flex;flex-direction:column;overflow:hidden;flex-shrink:0}
 #custom-right{flex:1;overflow-y:auto;padding:20px}
 #custom-right::-webkit-scrollbar{width:4px}
 #custom-right::-webkit-scrollbar-thumb{background:var(--b2);border-radius:2px}
-.custom-inner{width:100%}
-/* Left panel */
 .cpanel-sect{padding:12px 14px;border-bottom:1px solid var(--b);flex-shrink:0}
 .cpanel-lbl{font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:var(--tx3);font-family:var(--mono);margin-bottom:6px}
 #tok-scroll{flex:1;overflow-y:auto;padding:8px 14px;display:flex;flex-direction:column;gap:3px;min-height:0}
@@ -71,8 +65,8 @@ input[type=range]{width:80px;accent-color:var(--acc);cursor:pointer}
 .tok.ss{background:var(--rbg);border-color:var(--rb)}
 .tok:not(.sl):not(.ss):hover{background:var(--s2)}
 .tlogo,.tok-fb{width:20px;height:20px;border-radius:50%;flex-shrink:0}
-.tlogo{background:var(--s3);border:1px solid var(--b);object-fit:cover}
-.tok-fb{background:var(--s3);border:1px solid var(--b);display:inline-flex;align-items:center;justify-content:center;font-size:7px;font-weight:600;color:var(--tx2);font-family:var(--mono)}
+.tlogo{background:#fff;border:1.5px solid rgba(255,255,255,.85);box-shadow:0 0 0 1px var(--b);object-fit:contain;padding:2px}
+.tok-fb{background:var(--s3);border:1.5px solid rgba(255,255,255,.85);box-shadow:0 0 0 1px var(--b);display:inline-flex;align-items:center;justify-content:center;font-size:7px;font-weight:600;color:var(--tx2);font-family:var(--mono)}
 .tname{font-size:11px;font-weight:500;flex:1}
 .trate{font-size:9px;font-family:var(--mono);width:44px;text-align:right;flex-shrink:0}
 .lsbtns{display:flex;gap:2px}
@@ -98,7 +92,7 @@ input[type=range]{width:80px;accent-color:var(--acc);cursor:pointer}
 .tpill{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-family:var(--mono);padding:1px 6px;border-radius:4px;font-weight:500}
 .tpill-l{background:var(--gbg);color:var(--g)}
 .tpill-s{background:var(--rbg);color:var(--r)}
-.tpill img{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.tpill img{width:14px;height:14px;border-radius:50%;flex-shrink:0;border:1px solid rgba(255,255,255,.85);box-shadow:0 0 0 1px var(--b);background:#fff;object-fit:contain;padding:1px}
 .rkpis{display:flex;gap:14px;align-items:center;flex-shrink:0}
 .kpi{text-align:right}
 .kpi-v{font-size:15px;font-weight:500;font-family:var(--mono);letter-spacing:-.3px}
@@ -117,7 +111,7 @@ input[type=range]{width:80px;accent-color:var(--acc);cursor:pointer}
 .cbox{background:var(--bg);border:1px solid var(--b);border-radius:var(--r8);padding:12px;margin-bottom:12px}
 .ctitle{font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--tx3);font-family:var(--mono);margin-bottom:8px}
 /* Table */
-.tbl-wrap{border:1px solid var(--b);border-radius:var(--r8);overflow:hidden;margin-bottom:0}
+.tbl-wrap{border:1px solid var(--b);border-radius:var(--r8);overflow:hidden;margin-bottom:10px}
 .ltbl{width:100%;border-collapse:collapse;font-size:11px}
 .ltbl th{padding:6px 10px;font-size:8px;color:var(--tx3);text-transform:uppercase;letter-spacing:.06em;background:var(--s2);border-bottom:1px solid var(--b);font-weight:500;font-family:var(--mono);text-align:left}
 .ltbl th.r,.ltbl td.r{text-align:right}
@@ -127,15 +121,19 @@ input[type=range]{width:80px;accent-color:var(--acc);cursor:pointer}
 .ltbl tr.total-row td{background:var(--s2);font-weight:500}
 .tcell{display:flex;align-items:center;gap:6px}
 .tlsm,.tlsm-fb{width:16px;height:16px;border-radius:50%;flex-shrink:0}
-.tlsm{background:var(--s3);border:1px solid var(--b);object-fit:cover}
-.tlsm-fb{background:var(--s3);border:1px solid var(--b);display:inline-flex;align-items:center;justify-content:center;font-size:6px;font-weight:600;color:var(--tx2);font-family:var(--mono)}
-/* Loading / empty */
+.tlsm{background:#fff;border:1.5px solid rgba(255,255,255,.85);box-shadow:0 0 0 1px var(--b);object-fit:contain;padding:2px}
+.tlsm-fb{background:var(--s3);border:1.5px solid rgba(255,255,255,.85);box-shadow:0 0 0 1px var(--b);display:inline-flex;align-items:center;justify-content:center;font-size:6px;font-weight:600;color:var(--tx2);font-family:var(--mono)}
+/* Loading */
 .loading-full{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100dvh;gap:12px;color:var(--tx3);font-size:12px;font-family:var(--mono)}
 .loading-inline{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px;gap:10px;color:var(--tx3);font-size:11px;font-family:var(--mono)}
-.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:8px;color:var(--tx3);font-size:12px}
+.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;height:300px;gap:8px;color:var(--tx3);font-size:12px}
 .prog{width:180px;height:2px;background:var(--b);border-radius:2px}
 .prog-fill{height:100%;background:var(--acc);border-radius:2px;transition:width .3s}
 .pos{color:var(--g)}.neg{color:var(--r)}
+.corr-badge{font-size:9px;padding:1px 6px;border-radius:3px;font-weight:500;display:inline-block}
+.corr-h{background:var(--gbg);color:var(--g)}
+.corr-m{background:var(--abg);color:var(--a)}
+.corr-l{background:var(--rbg);color:var(--r)}
 </style>
 </head>
 <body>
@@ -150,7 +148,7 @@ input[type=range]{width:80px;accent-color:var(--acc);cursor:pointer}
   <div id="topbar">
     <div class="t-left">
       <h1>Pair Backtest</h1>
-      <span class="tsub">xyz perps · funding strategy</span>
+      <span class="tsub">xyz perps · price + funding</span>
     </div>
     <div class="t-controls">
       <div class="lev-wrap">
@@ -165,6 +163,16 @@ input[type=range]{width:80px;accent-color:var(--acc);cursor:pointer}
         <button class="pill" onclick="setP(30,this)">30d</button>
       </div>
       <div style="width:1px;height:20px;background:var(--b)"></div>
+      <div class="lev-wrap">
+        <span class="lev-lbl">Capital</span>
+        <div style="position:relative">
+          <span style="position:absolute;left:8px;top:50%;transform:translateY(-50%);font-size:11px;color:var(--tx3);font-family:var(--mono);pointer-events:none">$</span>
+          <input type="number" id="capital-input" value="1000" min="100" step="100"
+            style="width:80px;height:26px;padding:0 8px 0 18px;border:1px solid var(--b2);border-radius:20px;font-size:11px;font-family:var(--mono);background:transparent;color:var(--tx);outline:none;-moz-appearance:textfield"
+            oninput="onCapital(this.value)">
+        </div>
+      </div>
+      <div style="width:1px;height:20px;background:var(--b)"></div>
       <div class="live"><div class="dot"></div><span id="ts">—</span></div>
     </div>
   </div>
@@ -176,14 +184,12 @@ input[type=range]{width:80px;accent-color:var(--acc);cursor:pointer}
 
   <div id="content">
     <div class="tab-pane active" id="tab-auto">
-      <div class="auto-inner">
-        <div style="margin-bottom:14px">
-          <div style="font-size:13px;font-weight:500" id="auto-title">Best strategies · 7d</div>
-          <div style="font-size:11px;color:var(--tx3);font-family:var(--mono);margin-top:2px">Ranked by Sharpe · short high-funding, long low-funding</div>
-        </div>
-        <div id="auto-list">
-          <div class="loading-inline"><div>Computing…</div><div class="prog"><div class="prog-fill" style="width:50%"></div></div></div>
-        </div>
+      <div style="margin-bottom:14px">
+        <div style="font-size:13px;font-weight:500" id="auto-title">Best strategies · 7d</div>
+        <div style="font-size:11px;color:var(--tx3);font-family:var(--mono);margin-top:2px">Ranked by total P&L · price correlation + funding bonus</div>
+      </div>
+      <div id="auto-list">
+        <div class="loading-inline"><div>Scanning all token pairs…</div><div class="prog"><div class="prog-fill" id="auto-prog" style="width:5%"></div></div><div id="auto-prog-text" style="font-size:10px">Loading…</div></div>
       </div>
     </div>
 
@@ -191,10 +197,6 @@ input[type=range]{width:80px;accent-color:var(--acc);cursor:pointer}
       <div id="custom-left">
         <div class="cpanel-sect">
           <div class="cpanel-lbl">Pick tokens</div>
-          <div style="display:flex;gap:10px;font-size:10px;color:var(--tx3)">
-            <span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--gbg);border:1px solid var(--gb);margin-right:3px;vertical-align:middle"></span>Long</span>
-            <span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--rbg);border:1px solid var(--rb);margin-right:3px;vertical-align:middle"></span>Short</span>
-          </div>
         </div>
         <div id="tok-scroll"></div>
         <div id="basket-foot">
@@ -207,13 +209,11 @@ input[type=range]{width:80px;accent-color:var(--acc);cursor:pointer}
         </div>
       </div>
       <div id="custom-right">
-        <div class="custom-inner">
-          <div class="empty-state" id="custom-empty" style="height:300px">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".3"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            <div>Select tokens and run</div>
-          </div>
-          <div id="custom-result"></div>
+        <div id="custom-empty" class="empty-state">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".3"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <div>Select tokens and run</div>
         </div>
+        <div id="custom-result"></div>
       </div>
     </div>
   </div>
@@ -222,187 +222,358 @@ input[type=range]{width:80px;accent-color:var(--acc);cursor:pointer}
 <script>
 const TOKENS = ['xyz:WTIOIL','xyz:BRENTOIL','xyz:S&P500','xyz:MU','xyz:NVDA','xyz:SILVER','xyz:SNDK','xyz:INTC','xyz:ARM','xyz:GOLD','xyz:PLTR','xyz:SKHYNIX','xyz:MSFT','xyz:CRWV','xyz:ORCL','xyz:EWY','xyz:DRAM','xyz:CRCL','xyz:AMD','xyz:HOOD','xyz:TSLA','xyz:GOOGL','xyz:MRVL','xyz:MSTR','xyz:NATGAS'];
 
-let markets = {}, cache = {}, basket = {}, period = 7, leverage = 1;
-let openCards = {}, presetResults = [], customResults = [];
-
-function logo(n) { return `https://app.hyperliquid.xyz/coins/xyz:${n.replace('xyz:','')}.svg`; }
-function sp(pct, txt) {
-  document.getElementById('prog').style.width = pct + '%';
-  if (txt) document.getElementById('prog-text').textContent = txt;
+const LOGO_DOMAINS = {
+  'NVDA':'nvidia.com','TSLA':'tesla.com','AAPL':'apple.com','MSFT':'microsoft.com',
+  'GOOGL':'google.com','AMZN':'amazon.com','META':'meta.com','COIN':'coinbase.com',
+  'MSTR':'microstrategy.com','HOOD':'robinhood.com','PLTR':'palantir.com',
+  'INTC':'intel.com','AMD':'amd.com','MU':'micron.com','ORCL':'oracle.com',
+  'NFLX':'netflix.com','COST':'costco.com','LLY':'lilly.com','TSM':'tsmc.com',
+  'BABA':'alibaba.com','RIVN':'rivian.com','CRWV':'coreweave.com',
+  'EWJ':'blackrock.com','EWY':'blackrock.com','GME':'gamestop.com',
+  'DKNG':'draftkings.com','HIMS':'forhims.com','MRVL':'marvell.com',
+  'RKLB':'rocketlabusa.com','CRCL':'circle.com','BX':'blackstone.com',
+  'SNDK':'sandisk.com','ZM':'zoom.us','EBAY':'ebay.com','ARM':'arm.com',
+  'LITE':'lumentum.com','SKHYNIX':'skhynix.com','DRAM':'micron.com',
+  'WTIOIL':'oilprice.com','BRENTOIL':'oilprice.com','NATGAS':'nymex.com',
+  'GOLD':'gold.org','SILVER':'silverinstitute.org',
+};
+const LOGO_DEV_KEY = 'pk_NXW-OX6lRh69ILrKqzoxJA';
+function logo(n) {
+  const t = n.replace('xyz:','');
+  const d = LOGO_DOMAINS[t];
+  // Try logo.dev for known tickers, then Hyperliquid SVG
+  return d
+    ? `https://img.logo.dev/${d}?token=${LOGO_DEV_KEY}&size=32&retina=true`
+    : `https://app.hyperliquid.xyz/coins/xyz:${t}.svg`;
 }
 function fbLogo(img, ticker) {
   img.style.display = 'none';
   const fb = document.createElement('span');
   fb.className = img.classList.contains('tlogo') ? 'tok-fb' : 'tlsm-fb';
-  fb.textContent = (ticker || '?').replace('xyz:','').slice(0,3).toUpperCase();
+  fb.textContent = (ticker||'?').replace('xyz:','').slice(0,3).toUpperCase();
   img.parentNode.insertBefore(fb, img.nextSibling);
 }
 
+let markets = {}, priceCache = {}, fundingCache = {}, basket = {};
+let period = 7, leverage = 1, capital = 1000, openCards = {}, autoResults = [], customResults = [];
+
 async function hl(body) {
   const r = await fetch('https://api.hyperliquid.xyz/info', {
-    method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(body)
+    method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)
   });
   return r.json();
 }
 
+function sp(pct, txt) {
+  document.getElementById('prog').style.width = pct + '%';
+  if (txt) document.getElementById('prog-text').textContent = txt;
+}
+function ap(pct, txt) {
+  const el = document.getElementById('auto-prog');
+  const tel = document.getElementById('auto-prog-text');
+  if (el) el.style.width = pct + '%';
+  if (tel && txt) tel.textContent = txt;
+}
+
 async function fetchMarkets() {
-  const [meta, ctxs] = await hl({ type: 'metaAndAssetCtxs', dex: 'xyz' });
-  meta.universe.forEach((u, i) => {
+  const [meta, ctxs] = await hl({ type:'metaAndAssetCtxs', dex:'xyz' });
+  meta.universe.forEach((u,i) => {
     const c = ctxs[i];
     markets[u.name] = {
-      name: u.name,
-      display: u.name.replace('xyz:', ''),
-      fundingAnnual: parseFloat(c.funding) * 8760 * 100,
+      name: u.name, display: u.name.replace('xyz:',''),
+      fundingAnnual: parseFloat(c.funding)*8760*100,
       price: parseFloat(c.markPx)
     };
   });
 }
 
-async function getH(coin, days) {
-  const k = coin + '_' + days;
-  if (cache[k]) return cache[k];
-  const end = Date.now(); let start = end - days * 86400000, all = [];
+// Fetch daily candles — returns [{time, open, close}]
+async function fetchPrices(coin, days) {
+  const k = coin+'_px_'+days;
+  if (priceCache[k]) return priceCache[k];
+  try {
+    const end = Date.now(), start = end - (days+2)*86400000;
+    const r = await hl({ type:'candleSnapshot', req:{ coin, interval:'1d', startTime:start, endTime:end }});
+    if (!Array.isArray(r) || r.length < 2) return null;
+    const d = r.map(x => ({ time: x.t, open: parseFloat(x.o), close: parseFloat(x.c) }));
+    priceCache[k] = d; return d;
+  } catch(_) { return null; }
+}
+
+// Fetch funding history — returns [{time, rate (annualized %)}]
+async function fetchFunding(coin, days) {
+  const k = coin+'_fx_'+days;
+  if (fundingCache[k]) return fundingCache[k];
+  const end = Date.now(); let start = end - days*86400000, all = [];
   while (true) {
     try {
-      const p = await hl({ type: 'fundingHistory', coin, startTime: start });
-      if (!Array.isArray(p) || !p.length) break;
+      const p = await hl({ type:'fundingHistory', coin, startTime:start });
+      if (!Array.isArray(p)||!p.length) break;
       all = all.concat(p);
       if (p.length < 490) break;
-      start = p[p.length-1].time + 1;
+      start = p[p.length-1].time+1;
       if (start >= end) break;
     } catch(_) { break; }
   }
-  const d = all.map(x => ({ time: x.time, rate: parseFloat(x.fundingRate) * 8760 * 100 }));
-  cache[k] = d; return d;
+  const d = all.map(x => ({ time: x.time, rate: parseFloat(x.fundingRate)*8760*100 }));
+  fundingCache[k] = d; return d;
 }
 
-async function prefetch(names, days, onP) {
-  const need = [...new Set(names)].filter(n => !cache[n+'_'+days]);
+// Prefetch all in parallel
+async function prefetchAll(coins, days, onP) {
+  const need = [...new Set(coins)].filter(n => !priceCache[n+'_px_'+days] || !fundingCache[n+'_fx_'+days]);
   if (!need.length) return;
-  const B = 8; let done = 0;
+  const B = 6; let done = 0;
   for (let i = 0; i < need.length; i += B) {
     await Promise.all(need.slice(i, i+B).map(async n => {
-      await getH(n, days); done++;
+      await Promise.all([fetchPrices(n, days), fetchFunding(n, days)]);
+      done++;
       if (onP) onP(done, need.length);
     }));
   }
 }
 
-async function compute(legs, days, lev) {
-  const tdr = {}, ts = new Set();
-  for (const b of legs) {
-    const h = await getH(b.name, days);
-    tdr[b.name] = {};
-    h.forEach(d => {
-      const dk = Math.floor(d.time / 86400000) * 86400000;
-      if (!tdr[b.name][dk]) tdr[b.name][dk] = [];
-      tdr[b.name][dk].push(d.rate);
-      ts.add(dk);
-    });
-    Object.keys(tdr[b.name]).forEach(k => {
-      const a = tdr[b.name][k];
-      tdr[b.name][k] = a.reduce((s,v)=>s+v,0) / a.length;
-    });
+// Build daily price return map for a coin: {dk -> dailyReturn %}
+function buildDailyReturns(coin, days) {
+  const candles = priceCache[coin+'_px_'+days];
+  if (!candles || candles.length < 2) return {};
+  const out = {};
+  for (let i = 1; i < candles.length; i++) {
+    const dk = Math.floor(candles[i].time / 86400000) * 86400000;
+    out[dk] = (candles[i].close - candles[i-1].close) / candles[i-1].close * 100;
   }
-  const dkeys = [...ts].sort((a,b) => a-b);
-  const daily = dkeys.map(dk => {
-    let s = 0, c = 0;
-    legs.forEach(b => {
-      const rv = tdr[b.name][dk];
-      if (rv == null) return;
-      s += (b.side === 'S' ? rv : -rv) / 365 * lev;
-      c++;
-    });
-    return c ? { time: dk, pnl: s } : null;
-  }).filter(Boolean);
-  let cum = 0;
-  const series = daily.map(d => { cum += d.pnl; return { time: d.time, cum, pnl: d.pnl }; });
-  const vals = daily.map(d => d.pnl);
-  const avg = vals.reduce((s,v)=>s+v,0) / (vals.length||1);
-  const std = Math.sqrt(vals.reduce((s,v)=>s+Math.pow(v-avg,2),0) / (vals.length||1));
-  const sharpe = std > 0 ? avg / std * Math.sqrt(252) : 0;
-  const winRate = vals.filter(v=>v>0).length / (vals.length||1) * 100;
-  const tStats = legs.map(b => {
-    const h = cache[b.name+'_'+days] || [];
-    const rates = h.map(d => d.rate);
-    const avgR = rates.reduce((s,v)=>s+v,0) / (rates.length||1);
-    return { ...b, avgRate: avgR, contrib: (b.side==='S' ? avgR : -avgR) * lev };
+  return out;
+}
+
+// Build daily avg funding map for a coin: {dk -> avgRate (annualized %)}
+function buildDailyFunding(coin, days) {
+  const fh = fundingCache[coin+'_fx_'+days] || [];
+  const buckets = {};
+  fh.forEach(x => {
+    const dk = Math.floor(x.time / 86400000) * 86400000;
+    if (!buckets[dk]) buckets[dk] = [];
+    buckets[dk].push(x.rate);
   });
-  return { totalPnl: cum, sharpe, winRate, series, tStats, nDays: vals.length, lev };
+  const out = {};
+  Object.keys(buckets).forEach(dk => {
+    const a = buckets[dk];
+    out[dk] = a.reduce((s,v)=>s+v,0)/a.length;
+  });
+  return out;
 }
 
-function generatePresets() {
-  const av = TOKENS.filter(n => markets[n])
-    .map(n => ({ name: n, rate: markets[n].fundingAnnual }))
-    .sort((a,b) => b.rate - a.rate);
-  const top = av.slice(0, 8), bot = av.slice(-8);
-  return [
-    { id:'a1', name:'High yield shorts',   longs: bot.slice(0,3).map(t=>t.name), shorts: top.slice(0,3).map(t=>t.name) },
-    { id:'a2', name:'Max funding capture', longs: bot.slice(0,2).map(t=>t.name), shorts: top.slice(0,5).map(t=>t.name) },
-    { id:'a3', name:'Balanced 4×4',        longs: bot.slice(0,4).map(t=>t.name), shorts: top.slice(0,4).map(t=>t.name) },
-    { id:'a4', name:'Pure short',          longs: [bot[0].name],                  shorts: top.slice(0,6).map(t=>t.name) },
-    { id:'a5', name:'Tight spread',        longs: [bot[0].name],                  shorts: [top[0].name] },
-    { id:'a6', name:'Mid-tier shorts',     longs: bot.slice(0,3).map(t=>t.name), shorts: top.slice(2,7).map(t=>t.name) },
-  ].map(p => ({
-    ...p,
-    longs: p.longs.filter(n => markets[n]),
-    shorts: p.shorts.filter(n => markets[n])
-  })).filter(p => p.longs.length && p.shorts.length);
+// Pearson correlation of two arrays
+function pearson(xs, ys) {
+  const n = Math.min(xs.length, ys.length);
+  if (n < 5) return null;
+  const ax = xs.slice(0,n), ay = ys.slice(0,n);
+  const mx = ax.reduce((s,v)=>s+v,0)/n, my = ay.reduce((s,v)=>s+v,0)/n;
+  let num=0, dx2=0, dy2=0;
+  for (let i=0;i<n;i++) { const a=ax[i]-mx,b=ay[i]-my; num+=a*b; dx2+=a*a; dy2+=b*b; }
+  const d = Math.sqrt(dx2*dy2);
+  return d ? +(num/d).toFixed(3) : null;
 }
 
-async function init() {
-  try {
-    sp(5, 'Loading markets…');
-    await fetchMarkets();
-    const presets = generatePresets();
-    const all = [...new Set(presets.flatMap(p => [...p.longs, ...p.shorts]))].filter(n => markets[n]);
-    sp(10, 'Fetching history…');
-    await prefetch(all, period, (d,t) => sp(10 + Math.round(d/t*72), `Fetched ${d}/${t} tokens…`));
-    sp(84, 'Computing…');
-    document.getElementById('loading-full').style.display = 'none';
-    document.getElementById('shell').style.display = 'flex';
-    document.getElementById('ts').textContent = 'Updated ' + new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
-    buildTokList();
-    await runPresets(presets);
-  } catch(e) {
-    sp(100, 'Error: ' + e.message);
-    document.getElementById('prog').style.background = '#b91c1c';
-    console.error('Init error:', e);
+// Core compute: given legs with sides, compute day-by-day P&L (price + funding)
+// Equal weight across legs, leverage applied
+function computeFromData(legs, days, lev) {
+  // Build daily maps
+  const dailyRet = {}, dailyFund = {};
+  legs.forEach(b => {
+    dailyRet[b.name]  = buildDailyReturns(b.name, days);
+    dailyFund[b.name] = buildDailyFunding(b.name, days);
+  });
+
+  // Union of all days with price data
+  const ts = new Set();
+  legs.forEach(b => Object.keys(dailyRet[b.name]).forEach(dk => ts.add(+dk)));
+  const dkeys = [...ts].sort((a,b) => a-b);
+
+  const daily = dkeys.map(dk => {
+    let pricePnl = 0, fundingPnl = 0, cnt = 0;
+    legs.forEach(b => {
+      const pr = dailyRet[b.name][dk];
+      const fr = dailyFund[b.name][dk]; // already annualized %
+      if (pr == null) return;
+      const sign = b.side === 'L' ? 1 : -1;
+      // price P&L: daily % return × leverage
+      pricePnl += sign * pr * lev;
+      // funding P&L: annualized % / 365 = daily %, no extra *100
+      // fr is already in % (e.g. 25.3 means 25.3%/yr)
+      fundingPnl += (b.side==='S'?1:-1) * (fr??0) / 365 * lev;
+      cnt++;
+    });
+    if (!cnt) return null;
+    const n = legs.length;
+    // Normalize by number of legs (equal weight portfolio)
+    return { time: dk, pricePnl: pricePnl/n, fundingPnl: fundingPnl/n, total: (pricePnl+fundingPnl)/n };
+  }).filter(Boolean);
+
+  let cum=0, cumPx=0, cumFx=0;
+  const series = daily.map(d => {
+    cum    += d.total;
+    cumPx  += d.pricePnl;
+    cumFx  += d.fundingPnl;
+    return { time: d.time, cum, cumPx, cumFx };
+  });
+
+  const vals = daily.map(d=>d.total);
+  const avg = vals.reduce((s,v)=>s+v,0)/(vals.length||1);
+  const std = Math.sqrt(vals.reduce((s,v)=>s+Math.pow(v-avg,2),0)/(vals.length||1));
+  const sharpe = std>0 ? avg/std*Math.sqrt(252) : 0;
+  const winRate = vals.filter(v=>v>0).length/(vals.length||1)*100;
+  const maxDD = calcMaxDD(series.map(d=>d.cum));
+
+  // Per-leg stats
+  const tStats = legs.map(b => {
+    const rets = Object.values(dailyRet[b.name]);
+    const totalPx = rets.reduce((s,v)=>s+v,0);
+    const fRates = Object.values(dailyFund[b.name]);
+    const avgFund = fRates.reduce((s,v)=>s+v,0)/(fRates.length||1);
+    const sign = b.side==='L'?1:-1;
+    return { ...b, totalPricePnl: sign*totalPx*lev/legs.length, avgFunding: avgFund, fundingSign: b.side==='S'?1:-1 };
+  });
+
+  return { totalPnl: cum, pricePnl: cumPx, fundingPnl: cumFx, sharpe, winRate, maxDD, series, tStats, nDays: vals.length, lev };
+}
+
+function calcMaxDD(cumSeries) {
+  let peak = -Infinity, maxDD = 0;
+  for (const v of cumSeries) {
+    if (v > peak) peak = v;
+    const dd = peak - v;
+    if (dd > maxDD) maxDD = dd;
   }
+  return maxDD;
 }
 
-async function runPresets(presets, autoOpen) {
-  document.getElementById('auto-title').textContent = `Best strategies · ${period}d${leverage>1?' · '+leverage+'×':''}`;
-  const results = [];
-  for (const p of presets) {
-    const legs = [...p.longs.map(n=>({name:n,side:'L'})), ...p.shorts.map(n=>({name:n,side:'S'}))];
-    try { const r = await compute(legs, period, leverage); results.push({...p, legs, result: r}); } catch(_) {}
+// ── Auto-ranking engine ───────────────────────────────────────────
+// Strategy:
+// 1. Fetch all price+funding data
+// 2. For every pair (A,B): compute price correlation
+// 3. Keep pairs with corr > threshold
+// 4. For each correlated pair: choose side direction that maximizes funding bonus
+// 5. Also test 3-token and 4-token baskets from top pairs
+// 6. Rank all by Sharpe, return top N
+
+async function runAutoRanking() {
+  const available = TOKENS.filter(n => markets[n]);
+
+  ap(5, `Fetching price+funding for ${available.length} tokens…`);
+  await prefetchAll(available, period, (d,t) => ap(5+Math.round(d/t*40), `Data: ${d}/${t} tokens…`));
+  ap(48, 'Computing price correlations…');
+
+  // Build daily return arrays for all tokens
+  const retArrays = {};
+  available.forEach(n => {
+    const m = buildDailyReturns(n, period);
+    retArrays[n] = Object.values(m);
+  });
+
+  // Find all pairs with high price correlation
+  const pairs = [];
+  for (let i=0; i<available.length; i++) {
+    for (let j=i+1; j<available.length; j++) {
+      const a = available[i], b = available[j];
+      const c = pearson(retArrays[a], retArrays[b]);
+      if (c !== null) pairs.push({ a, b, corr: c });
+    }
   }
-  results.sort((a,b) => b.result.sharpe - a.result.sharpe);
-  presetResults = results;
-  document.getElementById('auto-list').innerHTML = results.map((p,i) => buildCard(p, i, 'auto')).join('');
-  if (autoOpen !== false && results.length) setTimeout(() => toggleCard(0, 'auto'), 80);
+  // Sort by absolute correlation
+  pairs.sort((x,y) => Math.abs(y.corr)-Math.abs(x.corr));
+
+  ap(60, 'Building & backtesting strategies…');
+
+  const strategies = [];
+  const tested = new Set();
+
+  // For each pair: test both orientations and pick best
+  for (const pair of pairs.slice(0, 40)) {
+    // Determine which to long/short based on funding
+    const fa = markets[pair.a]?.fundingAnnual ?? 0;
+    const fb = markets[pair.b]?.fundingAnnual ?? 0;
+
+    // Try both orientations
+    const orientations = [
+      [{ name:pair.a, side:'L' }, { name:pair.b, side:'S' }],
+      [{ name:pair.a, side:'S' }, { name:pair.b, side:'L' }],
+    ];
+
+    for (const legs of orientations) {
+      const key = legs.map(l=>l.name+l.side).sort().join('|');
+      if (tested.has(key)) continue;
+      tested.add(key);
+      try {
+        const r = computeFromData(legs, period, leverage);
+        if (r.nDays < 3) continue;
+        const names = legs.map(l => markets[l.name]?.display||l.name.replace('xyz:','')).join(' / ');
+        strategies.push({ name: names, legs, result: r, corr: pair.corr, type:'pair' });
+      } catch(_) {}
+    }
+  }
+
+  // Also test some 3-token baskets from top correlated groups
+  const topPairs = pairs.slice(0, 15);
+  const seen3 = new Set();
+  for (let i=0; i<topPairs.length; i++) {
+    for (let j=i+1; j<topPairs.length; j++) {
+      const pa = topPairs[i], pb = topPairs[j];
+      const tokens3 = [...new Set([pa.a, pa.b, pb.a, pb.b])];
+      if (tokens3.length !== 3) continue;
+      const key3 = tokens3.sort().join('|');
+      if (seen3.has(key3)) continue;
+      seen3.add(key3);
+
+      // Best sides: short highest funding, long others
+      const sorted = tokens3.map(n=>({n, f:markets[n]?.fundingAnnual??0})).sort((a,b)=>b.f-a.f);
+      const legs = sorted.map((t,i) => ({ name:t.n, side: i===0?'S':'L' }));
+      try {
+        const r = computeFromData(legs, period, leverage);
+        if (r.nDays < 3) continue;
+        const names = legs.map(l=>markets[l.name]?.display||l.name.replace('xyz:','')).join(' / ');
+        strategies.push({ name: names, legs, result: r, type:'basket3' });
+      } catch(_) {}
+    }
+  }
+
+  // Sort by total P&L (price is primary, funding is bonus)
+  strategies.sort((a,b) => b.result.totalPnl - a.result.totalPnl);
+  const top = strategies.slice(0, 10);
+
+  ap(100, '');
+  return top;
 }
+
+// ── UI ────────────────────────────────────────────────────────────
 
 function legPills(legs) {
-  return legs.map(l => `<span class="tpill tpill-${l.side.toLowerCase()}"><img src="${logo(l.name)}" onerror="this.style.display='none'">${markets[l.name]?.display||l.name.replace('xyz:','')}</span>`).join('');
+  return legs.map(l => `<span class="tpill tpill-${l.side.toLowerCase()}">
+    <img src="${logo(l.name)}" onerror="this.style.display='none'">
+    ${markets[l.name]?.display||l.name.replace('xyz:','')}
+  </span>`).join('');
 }
 
 function buildCard(p, i, ns) {
   const r = p.result;
-  const pc = r.totalPnl>=0 ? 'var(--g)' : 'var(--r)';
-  const sc = r.sharpe>=1.5 ? 'var(--g)' : r.sharpe>=0.5 ? 'var(--a)' : 'var(--r)';
+  const CAPITAL = capital;
+  const pc = r.totalPnl>=0?'var(--g)':'var(--r)';
+  const sc = r.sharpe>=1.5?'var(--g)':r.sharpe>=0.5?'var(--a)':'var(--r)';
   const id = `${ns}-${i}`;
+  const dollarPnl = r.totalPnl/100*CAPITAL;
+  const fmt$ = n => (n>=0?'+':'-')+'$'+Math.round(Math.abs(n)).toLocaleString('en-US');
   return `<div class="rcard" id="rc-${id}">
     <div class="rcard-head" onclick="toggleCard(${i},'${ns}')">
-      ${ns==='auto' ? `<span class="rnum">#${i+1}</span>` : ''}
+      ${ns==='auto'?`<span class="rnum">#${i+1}</span>`:''}
       <div class="rinfo">
-        <div class="rname">${p.name}</div>
+        <div class="rname">${p.name}${p.corr!=null?` <span style="font-size:9px;color:var(--tx3)">corr ${p.corr>0?'+':''}${p.corr.toFixed(2)}</span>`:''}</div>
         <div class="rlegs">${legPills(p.legs)}</div>
       </div>
       <div class="rkpis">
+        <div class="kpi">
+          <div class="kpi-v" style="color:${pc}">${r.totalPnl>=0?'+':''}${r.totalPnl.toFixed(2)}%</div>
+          <div class="kpi-l" style="color:${pc};font-size:10px;font-weight:500">${fmt$(dollarPnl)}</div>
+        </div>
         <div class="kpi"><div class="kpi-v" style="color:${sc}">${r.sharpe>=0?'+':''}${r.sharpe.toFixed(2)}</div><div class="kpi-l">Sharpe</div></div>
-        <div class="kpi"><div class="kpi-v" style="color:${pc}">${r.totalPnl>=0?'+':''}${r.totalPnl.toFixed(2)}%</div><div class="kpi-l">P&L (${period}d)</div></div>
         <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
       </div>
     </div>
@@ -411,70 +582,86 @@ function buildCard(p, i, ns) {
 }
 
 function buildDetail(p, id) {
-  const r = p.result, lev = r.lev || 1;
-  const pc = r.totalPnl>=0 ? 'var(--g)' : 'var(--r)';
-  const sc = r.sharpe>=1.5 ? 'var(--g)' : r.sharpe>=0.5 ? 'var(--a)' : 'var(--r)';
-  const ann = r.totalPnl / period * 365;
-  const fmt$ = n => '$' + Math.round(Math.abs(n)).toLocaleString('en-US');
-
-  // Sizing table
-  const weights = window._sizingMode === 'rate'
-    ? (() => {
-        const rates = r.tStats.map(t => Math.max(Math.abs(markets[t.name]?.fundingAnnual||0.1),0.1));
-        const total = rates.reduce((s,v)=>s+v,0);
-        return rates.map(v => v/total);
-      })()
-    : r.tStats.map(() => 1/r.tStats.length);
-
-  const CAPITAL = 10000;
-  const rows = r.tStats.map((t,i) => {
-    const alloc = weights[i];
-    const notional = CAPITAL * alloc;
-    const cur = markets[t.name]?.fundingAnnual ?? 0;
-    const vsAvg = cur > t.avgRate*1.1 ? '↑' : cur < t.avgRate*0.9 ? '↓' : '~';
-    const expected = notional * Math.abs(cur) / 100 * (period/365) * (t.side==='S' ? 1 : -1);
-    return { t, alloc, notional, cur, vsAvg, expected };
-  });
-  const totalExpected = rows.reduce((s,r)=>s+r.expected,0);
+  const r = p.result, lev = r.lev||1;
+  const CAPITAL = capital;
+  const pc = r.totalPnl>=0?'var(--g)':'var(--r)';
+  const sc = r.sharpe>=1.5?'var(--g)':r.sharpe>=0.5?'var(--a)':'var(--r)';
+  const ann = r.totalPnl/period*365;
+  const fmt$ = n => '$'+Math.round(Math.abs(n)).toLocaleString('en-US');
+  const fmtSigned$ = n => (n>=0?'+':'-')+'$'+Math.round(Math.abs(n)).toLocaleString('en-US');
+  const nLegs = r.tStats.length||1;
+  const dollarTotal   = r.totalPnl/100*CAPITAL;
+  const dollarPrice   = r.pricePnl/100*CAPITAL;
+  const dollarFunding = r.fundingPnl/100*CAPITAL;
+  const dollarDD      = r.maxDD/100*CAPITAL;
 
   return `
     <div class="sgrid">
-      <div class="sc"><div class="slbl">P&L over ${period}d</div><div class="sval" style="color:${pc}">${r.totalPnl>=0?'+':''}${r.totalPnl.toFixed(2)}%</div><div class="ssub">$10k → ${r.totalPnl>=0?'+':''}$${(r.totalPnl/100*10000).toFixed(0)}</div></div>
+      <div class="sc"><div class="slbl">Total P&L (${period}d)</div><div class="sval" style="color:${pc}">${r.totalPnl>=0?'+':''}${r.totalPnl.toFixed(2)}%</div><div class="ssub" style="color:${pc};font-weight:500">${fmtSigned$(dollarTotal)}</div></div>
       <div class="sc"><div class="slbl">Sharpe</div><div class="sval" style="color:${sc}">${r.sharpe.toFixed(2)}</div><div class="ssub">${r.sharpe>=2?'Excellent':r.sharpe>=1?'Good':r.sharpe>=0?'Weak':'Negative'}</div></div>
       <div class="sc"><div class="slbl">Win rate</div><div class="sval">${r.winRate.toFixed(0)}%</div><div class="ssub">${r.nDays}d tracked</div></div>
-      <div class="sc"><div class="slbl">Ann. (extrapolated)</div><div class="sval" style="color:${pc}">${ann>=0?'+':''}${ann.toFixed(1)}%</div><div class="ssub">${period}d × (365/${period})</div></div>
+      <div class="sc"><div class="slbl">Max drawdown</div><div class="sval neg">-${r.maxDD.toFixed(2)}%</div><div class="ssub" style="color:var(--r);font-weight:500">-${fmt$(dollarDD)}</div></div>
     </div>
-    <div class="cbox"><div class="ctitle">Cumulative P&L</div><div style="height:200px"><canvas id="chart-${id}"></canvas></div></div>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
-      <div style="font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:var(--tx3);font-family:var(--mono)">Positions — $10 000 capital</div>
-      <div style="display:flex;gap:3px">
-        <button onclick="setSizingMode('${id}','eq')" id="sz-eq-${id}" class="pill active" style="padding:2px 8px;font-size:9px">Equal</button>
-        <button onclick="setSizingMode('${id}','rate')" id="sz-rate-${id}" class="pill" style="padding:2px 8px;font-size:9px">By rate</button>
-      </div>
+    <div class="cbox">
+      <div class="ctitle">Cumulative P&L — <span style="color:#15803d">Total</span> · <span style="color:#2563eb">Price</span> · <span style="color:#d97706">Funding</span></div>
+      <div style="height:200px"><canvas id="chart-${id}"></canvas></div>
     </div>
     <div class="tbl-wrap">
       <table class="ltbl">
-        <thead><tr><th>Token</th><th>Side</th><th class="r">Notional</th><th class="r">Current /yr</th><th class="r">Avg /yr</th><th class="r">Expected (${period}d)</th></tr></thead>
+        <thead><tr>
+          <th>Token</th><th>Side</th>
+          <th class="r">Price P&L (${period}d)</th>
+          <th class="r">Avg funding /yr</th>
+          <th class="r">Funding (${period}d est.)</th>
+          <th class="r">Notional</th>
+        </tr></thead>
         <tbody>
-        ${rows.map(({t,alloc,notional,cur,vsAvg,expected}) => `
-          <tr>
+        ${r.tStats.map(t => {
+          const notional = CAPITAL/nLegs*lev;
+          const fundEst = notional * Math.abs(t.avgFunding)/100 * (period/365) * t.fundingSign;
+          const pxPnl = t.totalPricePnl;
+          return `<tr>
             <td><div class="tcell">
               <img class="tlsm" src="${logo(t.name)}" onerror="fbLogo(this,'${markets[t.name]?.display||t.name.replace('xyz:','')}')" alt="">
               <span>${markets[t.name]?.display||t.name.replace('xyz:','')}</span>
             </div></td>
             <td><span class="tpill tpill-${t.side.toLowerCase()}" style="display:inline-flex">${t.side==='L'?'Long':'Short'}</span></td>
+            <td class="r ${pxPnl>=0?'pos':'neg'}">${pxPnl>=0?'+':''}${pxPnl.toFixed(2)}%</td>
+            <td class="r ${t.avgFunding>=0?'pos':'neg'}">${t.avgFunding>=0?'+':''}${t.avgFunding.toFixed(1)}%</td>
+            <td class="r ${fundEst>=0?'pos':'neg'}">${fundEst>=0?'+':'−'}${fmt$(fundEst)}</td>
             <td class="r">${fmt$(notional)}</td>
-            <td class="r ${cur>=0?'pos':'neg'}">${cur>=0?'+':''}${cur.toFixed(1)}% <span style="font-size:9px;color:var(--tx3)">${vsAvg}</span></td>
-            <td class="r ${t.avgRate>=0?'pos':'neg'}">${t.avgRate>=0?'+':''}${t.avgRate.toFixed(1)}%</td>
-            <td class="r ${expected>=0?'pos':'neg'}">${expected>=0?'+':'−'}${fmt$(expected)}</td>
-          </tr>`).join('')}
-        <tr class="total-row">
-          <td colspan="5" style="padding:7px 10px">Total expected over ${period}d</td>
-          <td class="r ${totalExpected>=0?'pos':'neg'}">${totalExpected>=0?'+':'−'}${fmt$(totalExpected)}</td>
-        </tr>
+          </tr>`;
+        }).join('')}
         </tbody>
       </table>
     </div>`;
+}
+
+function drawChart(id, series) {
+  const canvas = document.getElementById('chart-'+id);
+  if (!canvas || !series.length) return;
+  if (openCards[id]) { openCards[id].destroy(); delete openCards[id]; }
+  const total  = series.map(d=>d.cum);
+  const price  = series.map(d=>d.cumPx);
+  const fund   = series.map(d=>d.cumFx);
+  const labels = series.map(d=>new Date(d.time).toLocaleDateString('en-GB',{day:'2-digit',month:'short'}));
+  const isPos  = total[total.length-1]>=0;
+  openCards[id] = new Chart(canvas, {
+    type:'line',
+    data:{ labels, datasets:[
+      { label:'Total',   data:total, borderColor: isPos?'#15803d':'#b91c1c', backgroundColor: isPos?'rgba(21,128,61,.07)':'rgba(185,28,28,.05)', fill:true, borderWidth:2, pointRadius:0, tension:0.35 },
+      { label:'Price',   data:price, borderColor:'#2563eb', backgroundColor:'transparent', fill:false, borderWidth:1.5, borderDash:[4,3], pointRadius:0, tension:0.35 },
+      { label:'Funding', data:fund,  borderColor:'#d97706', backgroundColor:'transparent', fill:false, borderWidth:1.5, borderDash:[4,3], pointRadius:0, tension:0.35 },
+    ]},
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{ display:false }, tooltip:{ callbacks:{ label:c=>`${c.dataset.label}: ${c.parsed.y>=0?'+':''}${c.parsed.y.toFixed(3)}%` }}},
+      scales:{
+        x:{ grid:{display:false}, ticks:{font:{family:'DM Mono,monospace',size:9},color:'#9c9c94',maxTicksLimit:8}},
+        y:{ grid:{color:'rgba(0,0,0,.05)'}, ticks:{font:{family:'DM Mono,monospace',size:9},color:'#9c9c94',callback:v=>(v>=0?'+':'')+v.toFixed(1)+'%'}}
+      }
+    }
+  });
 }
 
 function toggleCard(i, ns) {
@@ -487,94 +674,86 @@ function toggleCard(i, ns) {
     return;
   }
   card.classList.add('open');
-  const results = ns === 'auto' ? presetResults : customResults;
+  const results = ns==='auto' ? autoResults : customResults;
   const p = results[i]; if (!p) return;
-  const detailEl = document.getElementById('rd-'+id);
-  detailEl.innerHTML = buildDetail(p, id);
-  setTimeout(() => {
-    const canvas = document.getElementById('chart-'+id);
-    if (!canvas || !p.result.series.length) return;
-    if (openCards[id]) openCards[id].destroy();
-    const vals = p.result.series.map(d=>d.cum), isPos = vals[vals.length-1] >= 0;
-    const col = isPos ? '#15803d' : '#b91c1c', bg = isPos ? 'rgba(21,128,61,.07)' : 'rgba(185,28,28,.05)';
-    openCards[id] = new Chart(canvas, {
-      type: 'line',
-      data: {
-        labels: p.result.series.map(d => new Date(d.time).toLocaleDateString('en-GB',{day:'2-digit',month:'short'})),
-        datasets: [{ data: vals, borderColor: col, backgroundColor: bg, fill: true, borderWidth: 1.5, pointRadius: 0, tension: 0.35 }]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => `${c.parsed.y>=0?'+':''}${c.parsed.y.toFixed(3)}%` } } },
-        scales: {
-          x: { grid: { display: false }, ticks: { font: { family: 'DM Mono,monospace', size: 9 }, color: '#9c9c94', maxTicksLimit: 8 } },
-          y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { family: 'DM Mono,monospace', size: 9 }, color: '#9c9c94', callback: v => (v>=0?'+':'')+v.toFixed(1)+'%' } }
-        }
-      }
-    });
-  }, 30);
+  document.getElementById('rd-'+id).innerHTML = buildDetail(p, id);
+  setTimeout(() => drawChart(id, p.result.series), 30);
 }
 
-function setSizingMode(id, mode) {
-  window._sizingMode = mode;
-  document.getElementById('sz-eq-'+id)?.classList.toggle('active', mode==='eq');
-  document.getElementById('sz-rate-'+id)?.classList.toggle('active', mode==='rate');
-  const ns = id.split('-')[0], idx = parseInt(id.split('-')[1]);
-  const results = ns==='auto' ? presetResults : customResults;
-  const p = results[idx]; if (!p) return;
-  const detailEl = document.getElementById('rd-'+id);
-  if (detailEl) detailEl.innerHTML = buildDetail(p, id);
-  // Reopen card (chart needs redraw)
-  document.getElementById('rc-'+id)?.classList.add('open');
-  setTimeout(() => {
-    const canvas = document.getElementById('chart-'+id);
-    if (!canvas || !p.result.series.length) return;
-    if (openCards[id]) openCards[id].destroy();
-    const vals = p.result.series.map(d=>d.cum), isPos = vals[vals.length-1]>=0;
-    const col = isPos?'#15803d':'#b91c1c', bg = isPos?'rgba(21,128,61,.07)':'rgba(185,28,28,.05)';
-    openCards[id] = new Chart(canvas, {
-      type:'line',data:{labels:p.result.series.map(d=>new Date(d.time).toLocaleDateString('en-GB',{day:'2-digit',month:'short'})),datasets:[{data:vals,borderColor:col,backgroundColor:bg,fill:true,borderWidth:1.5,pointRadius:0,tension:0.35}]},
-      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{font:{family:'DM Mono,monospace',size:9},color:'#9c9c94',maxTicksLimit:8}},y:{grid:{color:'rgba(0,0,0,.05)'},ticks:{font:{family:'DM Mono,monospace',size:9},color:'#9c9c94',callback:v=>(v>=0?'+':'')+v.toFixed(1)+'%'}}}}
-    });
-  }, 30);
+async function onCapital(v) {
+  const n = parseFloat(v);
+  if (!n || n < 1) return;
+  capital = n;
+  // Re-render open cards with new capital (no refetch needed)
+  Object.keys(openCards).forEach(id => {
+    const ns = id.split('-')[0], idx = parseInt(id.split('-')[1]);
+    const results = ns==='auto' ? autoResults : customResults;
+    const p = results[idx]; if (!p) return;
+    const detailEl = document.getElementById('rd-'+id);
+    if (!detailEl) return;
+    detailEl.innerHTML = buildDetail(p, id);
+    if (openCards[id]) { openCards[id].destroy(); delete openCards[id]; }
+    setTimeout(() => drawChart(id, p.result.series), 30);
+  });
 }
 
 async function onLev(v) {
   leverage = parseInt(v);
-  document.getElementById('lev-val').textContent = leverage + '×';
-  Object.values(openCards).forEach(c => { if(c.destroy) c.destroy(); }); openCards = {};
-  await runPresets(generatePresets(), false);
+  document.getElementById('lev-val').textContent = leverage+'×';
+  refreshAuto(false);
 }
 
 async function setP(d, btn) {
   period = d;
-  document.querySelectorAll('.pill').forEach(b => b.classList.toggle('active', b===btn));
-  Object.values(openCards).forEach(c => { if(c.destroy) c.destroy(); }); openCards = {};
-  document.getElementById('auto-list').innerHTML = '<div class="loading-inline"><div>Fetching…</div><div class="prog"><div class="prog-fill" style="width:30%"></div></div></div>';
-  const presets = generatePresets();
-  await prefetch([...new Set(presets.flatMap(p=>[...p.longs,...p.shorts]))].filter(n=>markets[n]), d);
-  await runPresets(presets);
+  document.querySelectorAll('.pill').forEach(b=>b.classList.toggle('active',b===btn));
+  Object.values(openCards).forEach(c=>{if(c.destroy)c.destroy();}); openCards={};
+  document.getElementById('auto-list').innerHTML = '<div class="loading-inline"><div>Fetching new period data…</div><div class="prog"><div class="prog-fill" id="auto-prog" style="width:5%"></div></div><div id="auto-prog-text" style="font-size:10px"></div></div>';
+  await runAndRender();
+}
+
+async function refreshAuto(recompute=true) {
+  Object.values(openCards).forEach(c=>{if(c.destroy)c.destroy();}); openCards={};
+  if (recompute) {
+    document.getElementById('auto-list').innerHTML = '<div class="loading-inline"><div>Recomputing…</div><div class="prog"><div class="prog-fill" style="width:30%"></div></div></div>';
+    await runAndRender();
+  } else {
+    // Re-render with new leverage (reuse cached data)
+    const results = await runAutoRanking();
+    autoResults = results;
+    document.getElementById('auto-title').textContent = `Best strategies · ${period}d${leverage>1?' · '+leverage+'×':''}`;
+    document.getElementById('auto-list').innerHTML = results.length
+      ? results.map((p,i)=>buildCard(p,i,'auto')).join('')
+      : '<div class="loading-inline">No strategies found.</div>';
+  }
+}
+
+async function runAndRender() {
+  const results = await runAutoRanking();
+  autoResults = results;
+  document.getElementById('auto-title').textContent = `Best strategies · ${period}d${leverage>1?' · '+leverage+'×':''}`;
+  document.getElementById('auto-list').innerHTML = results.length
+    ? results.map((p,i)=>buildCard(p,i,'auto')).join('')
+    : '<div class="loading-inline">No strategies found for this period.</div>';
 }
 
 function switchTab(name, btn) {
-  document.querySelectorAll('.tabbt').forEach(b => b.classList.remove('active')); btn.classList.add('active');
-  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tabbt').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+  document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
   document.getElementById('tab-'+name).classList.add('active');
-  if (name === 'custom') buildTokList();
+  if (name==='custom') buildTokList();
 }
 
 function buildTokList() {
   document.getElementById('tok-scroll').innerHTML = TOKENS.filter(t=>markets[t]).map(n => {
-    const m = markets[n], s = basket[n];
-    const cls = s==='L' ? 'sl' : s==='S' ? 'ss' : '';
-    const rc = m.fundingAnnual>=0 ? 'var(--g)' : 'var(--r)';
+    const m=markets[n], s=basket[n];
+    const cls = s==='L'?'sl':s==='S'?'ss':'';
+    const rc = m.fundingAnnual>=0?'var(--g)':'var(--r)';
     return `<div class="tok ${cls}">
       <img class="tlogo" src="${logo(n)}" alt="${m.display}" onerror="fbLogo(this,'${m.display}')">
       <span class="tname">${m.display}</span>
-      <span class="trate" style="color:${rc}">${m.fundingAnnual>=0?'+':''}${m.fundingAnnual.toFixed(1)}%</span>
       <div class="lsbtns">
-        <button class="lsb ${s==='L'?'la':''}" onclick="setSide('${n}','L')">L</button>
-        <button class="lsb ${s==='S'?'sa':''}" onclick="setSide('${n}','S')">S</button>
+        <button class="lsb ${s==='L'?'la':''}" onclick="setSide('${n}','L')" title="Long">↑</button>
+        <button class="lsb ${s==='S'?'sa':''}" onclick="setSide('${n}','S')" title="Short">↓</button>
       </div>
     </div>`;
   }).join('');
@@ -586,37 +765,54 @@ function setSide(n, side) {
 }
 
 function updateBasket() {
-  const legs = Object.entries(basket);
-  const tags = document.getElementById('btags'), dt = document.getElementById('delta-txt'), btn = document.getElementById('run-btn');
+  const legs=Object.entries(basket);
+  const tags=document.getElementById('btags'), dt=document.getElementById('delta-txt'), btn=document.getElementById('run-btn');
   if (!legs.length) { tags.innerHTML='<span style="color:var(--tx3);font-size:10px;font-family:var(--mono)">No tokens selected</span>'; dt.textContent=''; btn.disabled=true; return; }
-  const L = legs.filter(([,s])=>s==='L').length, S = legs.filter(([,s])=>s==='S').length;
-  const net = (L-S)/legs.length;
-  tags.innerHTML = legs.map(([n,s]) => `<span class="tpill tpill-${s.toLowerCase()}"><img src="${logo(n)}" style="width:10px;height:10px;border-radius:50%" onerror="this.style.display='none'">${markets[n]?.display||n.replace('xyz:','')}</span>`).join('');
-  const lbl = Math.abs(net)<0.1 ? '✓ Neutral' : net>0 ? `+${(net*100).toFixed(0)}% long bias` : `${(net*100).toFixed(0)}% short bias`;
-  dt.innerHTML = `<span style="color:${Math.abs(net)<0.1?'var(--g)':'var(--a)'}">${lbl}</span>`;
-  btn.disabled = legs.length < 2;
+  const L=legs.filter(([,s])=>s==='L').length, S=legs.filter(([,s])=>s==='S').length;
+  const net=(L-S)/legs.length;
+  tags.innerHTML=legs.map(([n,s])=>`<span class="tpill tpill-${s.toLowerCase()}"><img src="${logo(n)}" style="width:10px;height:10px;border-radius:50%" onerror="this.style.display='none'">${markets[n]?.display||n.replace('xyz:','')}</span>`).join('');
+  const lbl=Math.abs(net)<0.1?'✓ Neutral':net>0?`+${(net*100).toFixed(0)}% long bias`:`${(net*100).toFixed(0)}% short bias`;
+  dt.innerHTML=`<span style="color:${Math.abs(net)<0.1?'var(--g)':'var(--a)'}">${lbl}</span>`;
+  btn.disabled=legs.length<2;
 }
 
 async function runCustom() {
-  const legs = Object.entries(basket).map(([n,s]) => ({name:n,side:s}));
-  if (legs.length < 2) return;
-  const btn = document.getElementById('run-btn');
-  btn.disabled = true; btn.textContent = 'Running…';
-  document.getElementById('custom-empty').style.display = 'none';
-  document.getElementById('custom-result').innerHTML = '<div class="loading-inline"><div>Computing…</div></div>';
+  const legs=Object.entries(basket).map(([n,s])=>({name:n,side:s}));
+  if (legs.length<2) return;
+  const btn=document.getElementById('run-btn');
+  btn.disabled=true; btn.textContent='Running…';
+  document.getElementById('custom-empty').style.display='none';
+  document.getElementById('custom-result').innerHTML='<div class="loading-inline"><div>Fetching data…</div></div>';
   try {
-    await prefetch(legs.map(l=>l.name), period);
-    const r = await compute(legs, period, leverage);
-    const p = { name: 'Custom basket', legs, result: r };
-    customResults = [p];
-    document.getElementById('custom-result').innerHTML = buildCard(p, 0, 'custom');
-    setTimeout(() => toggleCard(0, 'custom'), 80);
+    await prefetchAll(legs.map(l=>l.name), period);
+    const r = computeFromData(legs, period, leverage);
+    const p = { name:'Custom basket', legs, result:r };
+    customResults=[p];
+    document.getElementById('custom-result').innerHTML=buildCard(p,0,'custom');
+    setTimeout(()=>toggleCard(0,'custom'),80);
   } catch(e) {
-    document.getElementById('custom-result').innerHTML = `<div style="color:var(--r);font-size:12px;padding:20px">Error: ${e.message}</div>`;
+    document.getElementById('custom-result').innerHTML=`<div style="color:var(--r);font-size:12px;padding:20px">Error: ${e.message}</div>`;
     console.error(e);
   }
-  btn.disabled = false;
-  btn.innerHTML = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5,3 19,12 5,21"/></svg> Run backtest';
+  btn.disabled=false;
+  btn.innerHTML='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5,3 19,12 5,21"/></svg> Run backtest';
+}
+
+async function init() {
+  try {
+    sp(5,'Loading markets…');
+    await fetchMarkets();
+    sp(60,'Markets loaded…');
+    document.getElementById('loading-full').style.display='none';
+    document.getElementById('shell').style.display='flex';
+    document.getElementById('ts').textContent='Updated '+new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+    buildTokList();
+    await runAndRender();
+  } catch(e) {
+    sp(100,'Error: '+e.message);
+    document.getElementById('prog').style.background='#b91c1c';
+    console.error('Init error:', e);
+  }
 }
 
 init();
